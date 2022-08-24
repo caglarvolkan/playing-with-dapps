@@ -5,16 +5,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from 'app/shared/shared.module';
 import { LandingHomeComponent } from 'app/modules/landing/home/home.component';
 import { landingHomeRoutes } from 'app/modules/landing/home/home.routing';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
     declarations: [
         LandingHomeComponent
     ],
-    imports     : [
+    imports: [
         RouterModule.forChild(landingHomeRoutes),
         MatButtonModule,
         MatIconModule,
-        SharedModule
+        SharedModule,
+        MatProgressBarModule
     ]
 })
 export class LandingHomeModule

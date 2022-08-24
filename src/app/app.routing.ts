@@ -10,7 +10,7 @@ import { InitialDataResolver } from 'app/app.resolvers';
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/example'
-    {path: '', pathMatch : 'full', redirectTo: 'example'},
+    {path: '', pathMatch : 'full', redirectTo: 'home'},
 
     // Redirect signed in user to the '/example'
     //
@@ -56,6 +56,9 @@ export const appRoutes: Route[] = [
     {
         path: '',
         component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
         data: {
             layout: 'empty'
         },

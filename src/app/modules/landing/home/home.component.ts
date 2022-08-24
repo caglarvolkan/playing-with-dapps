@@ -1,16 +1,13 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
-    selector     : 'landing-home',
-    templateUrl  : './home.component.html',
+    selector: 'landing-home',
+    templateUrl: './home.component.html',
     encapsulation: ViewEncapsulation.None
 })
-export class LandingHomeComponent
-{
-    /**
-     * Constructor
-     */
-    constructor()
-    {
+export class LandingHomeComponent {
+    loading: boolean = false;
+
+    constructor() {
     }
 }
