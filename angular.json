@@ -36,7 +36,10 @@
                             "crypto-js/enc-base64",
                             "flat",
                             "moment",
-                            "quill"
+                            "quill",
+                            "bn.js",
+                            "hash.js",
+                            "web3"
                         ],
                         "assets": [
                             "src/favicon-16x16.png",

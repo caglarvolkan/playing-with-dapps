@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import Web3 from 'web3';
 
 @Injectable({
     providedIn: 'root'
@@ -19,6 +20,8 @@ export class Web3Service {
 
     initWeb3(): Observable<boolean> {
         return new Observable<boolean>((subscriber) => {
+            const web3 = new Web3(new Web3.providers.HttpProvider(this._url));
+            web3.eth.getTransactionCount('0xc20297223c888Bb2F862a346362141861Bd9dAC8').then(console.log);
             subscriber.next(true);
             subscriber.complete();
         });
