@@ -1,0 +1,53 @@
+<div class="flex flex-col flex-auto w-full">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <div class="flex-auto p-6 sm:p-10">
+        <div class="h-full border-2 border-2 border-gray-300 rounded-2xl">
+
+            <!-- CONTENT GOES HERE -->
+            <div class="p-5">
+                <div class="flex items-end justify-between w-full">
+                    <div>
+                        <h2 class="text-3xl font-semibold tracking-tight leading-8">
+                            Web3 Connection Test
+                        </h2>
+
+                        <div class="flex flex-row flex-wrap items-center mt-4 w-full gap-2">
+                            <form>
+                                <mat-form-field class="w-full pt-5 w-96">
+                                    <input matInput maxlength="256"
+                                           placeholder="Enter an address for testing connection..."
+                                           [(ngModel)]="checkingAddress" [ngModelOptions]="{standalone: true}">
+                                </mat-form-field>
+                            </form>
+
+                            <button
+                                (click)="testWeb3Connection()"
+                                mat-flat-button
+                                [color]="'primary'">
+                                <span class="ml-2 mr-1">
+                                    Test Connection
+                                </span>
+                            </button>
+                        </div>
+                        <div class="flex flex-row flex-wrap items-center mt-1 w-full gap-2">
+                            <fuse-alert
+                                *ngIf="showAlert"
+                                [appearance]="'outline'"
+                                [showIcon]="true"
+                                [type]="alert.type"
+                                [@shake]="alert.type === 'error'" (click)="closeAlert()">
+                                {{alert.message}}
+                            </fuse-alert>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
