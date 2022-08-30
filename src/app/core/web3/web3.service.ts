@@ -21,13 +21,15 @@ export class Web3Service {
 
     initWeb3(): Observable<boolean> {
         return new Observable<boolean>((subscriber) => {
-            if (typeof window.ethereum !== 'undefined') {
-                const web3 = new Web3(window.ethereum);
-                this._web3.next(web3);
-            } else {
-                const web3 = new Web3(new Web3.providers.HttpProvider(this._ganacheUIURL));
-                this._web3.next(web3);
-            }
+            // if (typeof window.ethereum !== 'undefined') {
+            //     const web3 = new Web3(window.ethereum);
+            //     this._web3.next(web3);
+            // } else {
+            //     const web3 = new Web3(new Web3.providers.HttpProvider(this._ganacheUIURL));
+            //     this._web3.next(web3);
+            // }
+            const web3 = new Web3(new Web3.providers.HttpProvider(this._ganacheUIURL));
+            this._web3.next(web3);
             subscriber.next(true);
             subscriber.complete();
         });

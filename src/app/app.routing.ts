@@ -36,6 +36,10 @@ export const appRoutes: Route[] = [
                 path: 'test-web3-cnn',
                 loadChildren: () => import('app/modules/test-web3-cnn/test-web3-cnn.module').then(m => m.TestWeb3CnnModule)
             },
+            {
+                path: 'test-sc-write-ganache',
+                loadChildren: () => import('app/modules/test-sc-write-ganache/test-sc-write-ganache.module').then(m => m.TestScWriteGanacheModule)
+            },
         ]
     }
 ];
