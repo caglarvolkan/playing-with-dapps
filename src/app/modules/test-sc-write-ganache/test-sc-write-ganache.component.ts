@@ -36,6 +36,19 @@ export class TestScWriteGanacheComponent implements OnInit, OnDestroy {
             .subscribe((web3) => {
                 this._web3 = web3;
                 this.loading = false;
+
+            });
+
+        this._web3Service.provider$()
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((provider) => {
+                if (provider === 'Metamask' && this._web3) {
+                    this._web3.eth.requestAccounts().then((value) => {
+                        if (value && value.length > 0) {
+                            this.fromAddress = value[0];
+                        }
+                    });
+                }
             });
     }
 
@@ -171,7 +184,7 @@ export class TestScWriteGanacheComponent implements OnInit, OnDestroy {
                     console.log(result);
                     this.alert = {
                         type: 'info',
-                        message: 'Success '
+                        message: 'Success : ' + result
                     };
                     this.receiptJSON = result;
                     this.loading = false;
