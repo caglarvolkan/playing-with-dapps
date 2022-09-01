@@ -105,7 +105,7 @@ export class TestScWriteGanacheComponent implements OnInit, OnDestroy {
                     console.log(receipt);
                     this.alert = {
                         type: 'info',
-                        message: 'Success '
+                        message: 'Success on writing to the blockchain...'
                     };
                     this.receiptJSON = receipt;
                     this.loading = false;
